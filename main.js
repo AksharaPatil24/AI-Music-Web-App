@@ -2,10 +2,14 @@ song1 = "";
 song2 = "";
 leftWristX = 0;
 leftWristY = 0;
+rightWristX=  0;
+rightWristY=  0;
 leftWrist = 0;
 rightWrist = 0;
 scoreLeftWrist = 0;
+scoreRightWrist = 0;
 status1 = "";
+status2 = "";
 function preload() {
     song1 = loadSound("Enemy(PaglaSongs).mp3");
     song2 = loadSound("Manike Mage Hithe - Yohani.mp3");
@@ -37,7 +41,20 @@ function draw() {
         if(status1 = stop)
         {
             song1.play();
+            song2.stop();
             document.getElementById("status").innerHTML = "Enemy Song is Playing";
+        }
+    }
+    if(scoreRightWrist > 0.2)
+    {
+        circle(rightWristX,rightWristY,20);
+        song1.stop();
+
+        if(status1 = stop)
+        {
+            song2.play();
+            song1.stop();
+            document.getElementById("status").innerHTML = "Manike Mage Hithe Song is Playing";
         }
     }
 }
